@@ -1,0 +1,11 @@
+{
+  "t": "EventCombat",
+  "v": 1,
+  "kind": "Hit",
+  "source_id": "018f0000-0000-7000-8000-0000000000aa",
+  "target_id": "018f0000-0000-7000-8000-0000000000bb",
+  "weapon_def": "weapon.light_cannon",
+  "x": 5100.0,
+  "y": 50.0,
+  "damage": 8.0
+}

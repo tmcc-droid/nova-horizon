@@ -1,0 +1,17 @@
+[package]
+name = "content"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Content pack loader for ships, systems, stations, weapons"
+
+[[bin]]
+name = "gen-galaxy"
+path = "src/bin/gen_galaxy.rs"
+
+[dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+tracing = { workspace = true }
+toml = "0.8"

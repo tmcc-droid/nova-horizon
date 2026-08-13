@@ -1,0 +1,3 @@
+# Content pack manifest — must match client and server CONTENT_VERSION at join.
+version = "0.1.0-dev"
+name = "nova-horizon-mvp"

@@ -1,0 +1,12 @@
+# Offline galaxy baker parameters only.
+# Runtime does NOT randomize — it loads content/galaxy/catalog.json (fixed MMO map).
+#
+# Rebuild catalog (rare — changes the shared universe):
+#   cargo run -p content --bin gen-galaxy
+
+seed = 20260809
+system_count = 1000
+max_links = 5
+populated_fraction = 0.28
+map_radius = 1200.0
+min_spacing = 16.0

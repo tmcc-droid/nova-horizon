@@ -1,0 +1,23 @@
+id = "ship.shuttle"
+display_name = "Work Shuttle"
+mass = 40.0
+hull_radius_wu = 12.0
+cargo_capacity_mass = 25.0
+base_shield = 140.0
+base_armor = 110.0
+base_energy = 120.0
+energy_regen = 14.0
+thrust = 220.0
+max_speed = 500.0
+turn_rate = 2.094
+starting_fuel = 10
+max_fuel = 10
+
+[outfit_slots]
+weapon = 1
+engine = 1
+special = 0
+
+[default_loadout]
+weapon = ["weapon.light_cannon"]
+engine = ["engine.basic"]

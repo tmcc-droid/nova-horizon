@@ -1,0 +1,10 @@
+{
+  "t": "RefuelResult",
+  "v": 1,
+  "request_id": "018f0000-0000-7000-8000-000000000011",
+  "ok": true,
+  "code": "Ok",
+  "fuel": 10,
+  "credits": 4750,
+  "units_bought": 3
+}

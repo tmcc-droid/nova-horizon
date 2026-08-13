@@ -1,0 +1,320 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_main"]
+[ext_resource type="Script" path="res://scripts/visuals/starfield.gd" id="2_stars"]
+[ext_resource type="Script" path="res://scripts/ui/minimap.gd" id="3_map"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_main")
+
+[node name="Starfield" type="Node2D" parent="."]
+script = ExtResource("2_stars")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.42, 0.42)
+position_smoothing_enabled = true
+position_smoothing_speed = 6.0
+
+[node name="Remotes" type="Node2D" parent="."]
+
+[node name="PlayerAnchor" type="Node2D" parent="."]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Dim" type="ColorRect" parent="HUD"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.02, 0.04, 0.08, 0)
+
+[node name="TopBar" type="PanelContainer" parent="HUD"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = -12.0
+offset_bottom = 72.0
+grow_horizontal = 2
+
+[node name="Margin" type="MarginContainer" parent="HUD/TopBar"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HBox" type="HBoxContainer" parent="HUD/TopBar/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="TitleBlock" type="VBoxContainer" parent="HUD/TopBar/Margin/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="GameTitle" type="Label" parent="HUD/TopBar/Margin/HBox/TitleBlock"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "NOVA HORIZON"
+
+[node name="StatusLabel" type="Label" parent="HUD/TopBar/Margin/HBox/TitleBlock"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.6, 0.75, 0.9, 1)
+text = "Connecting…"
+
+[node name="SystemLabel" type="Label" parent="HUD/TopBar/Margin/HBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "SYS —"
+
+[node name="CreditsLabel" type="Label" parent="HUD/TopBar/Margin/HBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "₵ 0"
+
+[node name="MapPanel" type="PanelContainer" parent="HUD"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -228.0
+offset_top = -292.0
+offset_right = -12.0
+offset_bottom = -52.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Margin" type="MarginContainer" parent="HUD/MapPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="Minimap" type="Control" parent="HUD/MapPanel/Margin"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("3_map")
+
+[node name="MapLegend" type="Label" parent="HUD"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -228.0
+offset_top = -48.0
+offset_right = -12.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 11
+theme_override_colors/font_color = Color(0.55, 0.7, 0.85, 1)
+text = "● you  ○ station  ● pirate
+M zoom  G galaxy"
+horizontal_alignment = 1
+
+[node name="FlightHUD" type="PanelContainer" parent="HUD"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = -150.0
+offset_right = 320.0
+offset_bottom = -12.0
+grow_vertical = 0
+
+[node name="Margin" type="MarginContainer" parent="HUD/FlightHUD"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 8
+
+[node name="VBox" type="VBoxContainer" parent="HUD/FlightHUD/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="ShieldRow" type="HBoxContainer" parent="HUD/FlightHUD/Margin/VBox"]
+layout_mode = 2
+
+[node name="L" type="Label" parent="HUD/FlightHUD/Margin/VBox/ShieldRow"]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+text = "SHIELD"
+
+[node name="ShieldBar" type="ProgressBar" parent="HUD/FlightHUD/Margin/VBox/ShieldRow"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 100.0
+value = 80.0
+show_percentage = false
+
+[node name="ArmorRow" type="HBoxContainer" parent="HUD/FlightHUD/Margin/VBox"]
+layout_mode = 2
+
+[node name="L" type="Label" parent="HUD/FlightHUD/Margin/VBox/ArmorRow"]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+text = "ARMOR"
+
+[node name="ArmorBar" type="ProgressBar" parent="HUD/FlightHUD/Margin/VBox/ArmorRow"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 100.0
+value = 60.0
+show_percentage = false
+
+[node name="EnergyRow" type="HBoxContainer" parent="HUD/FlightHUD/Margin/VBox"]
+layout_mode = 2
+
+[node name="L" type="Label" parent="HUD/FlightHUD/Margin/VBox/EnergyRow"]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+text = "ENERGY"
+
+[node name="EnergyBar" type="ProgressBar" parent="HUD/FlightHUD/Margin/VBox/EnergyRow"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 100.0
+value = 100.0
+show_percentage = false
+
+[node name="FuelRow" type="HBoxContainer" parent="HUD/FlightHUD/Margin/VBox"]
+layout_mode = 2
+
+[node name="L" type="Label" parent="HUD/FlightHUD/Margin/VBox/FuelRow"]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+text = "FUEL"
+
+[node name="FuelBar" type="ProgressBar" parent="HUD/FlightHUD/Margin/VBox/FuelRow"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 10.0
+value = 10.0
+show_percentage = false
+
+[node name="HelpLabel" type="Label" parent="HUD/FlightHUD/Margin/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+theme_override_colors/font_color = Color(0.55, 0.68, 0.8, 1)
+text = "Arrows/WASD fly  SPACE fire  D dock  U undock  G map"
+
+[node name="LoginPanel" type="PanelContainer" parent="HUD"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -140.0
+offset_right = 180.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Margin" type="MarginContainer" parent="HUD/LoginPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBox" type="VBoxContainer" parent="HUD/LoginPanel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="HUD/LoginPanel/Margin/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "ENTER SECTOR"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="HUD/LoginPanel/Margin/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.55, 0.7, 0.85, 1)
+text = "Authoritative multiplayer space ops"
+horizontal_alignment = 1
+
+[node name="Email" type="LineEdit" parent="HUD/LoginPanel/Margin/VBox"]
+layout_mode = 2
+placeholder_text = "Email"
+
+[node name="Password" type="LineEdit" parent="HUD/LoginPanel/Margin/VBox"]
+layout_mode = 2
+placeholder_text = "Password"
+secret = true
+
+[node name="ConnectBtn" type="Button" parent="HUD/LoginPanel/Margin/VBox"]
+layout_mode = 2
+text = "Login & Play"
+
+[node name="Hint" type="Label" parent="HUD/LoginPanel/Margin/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+theme_override_colors/font_color = Color(0.5, 0.62, 0.75, 1)
+text = "Server: 127.0.0.1:8080  ·  Arrows/WASD fly  ·  Space fire"
+horizontal_alignment = 1
+
+[node name="StationPanel" type="PanelContainer" parent="HUD"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -360.0
+offset_top = 90.0
+offset_right = -12.0
+offset_bottom = 420.0
+grow_horizontal = 0
+
+[node name="Margin" type="MarginContainer" parent="HUD/StationPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBox" type="VBoxContainer" parent="HUD/StationPanel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="StationLabel" type="Label" parent="HUD/StationPanel/Margin/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
+text = "STATION"
+
+[node name="MarketList" type="ItemList" parent="HUD/StationPanel/Margin/VBox"]
+custom_minimum_size = Vector2(0, 130)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BuyBtn" type="Button" parent="HUD/StationPanel/Margin/VBox"]
+layout_mode = 2
+text = "Buy ×1"
+
+[node name="SellBtn" type="Button" parent="HUD/StationPanel/Margin/VBox"]
+layout_mode = 2
+text = "Sell ×1"
+
+[node name="RefuelBtn" type="Button" parent="HUD/StationPanel/Margin/VBox"]
+layout_mode = 2
+text = "Refuel"
+
+[node name="UndockBtn" type="Button" parent="HUD/StationPanel/Margin/VBox"]
+layout_mode = 2
+text = "Undock"
+
+[node name="JumpBtn" type="Button" parent="HUD/StationPanel/Margin/VBox"]
+layout_mode = 2
+text = "Jump → Alpha Centauri"

@@ -1,0 +1,8 @@
+id = "weapon.light_cannon"
+display_name = "Light Cannon"
+fire_group = 0
+range_wu = 2200.0
+# Tuned for multi-second fights (was 8 / 0.25s ≈ instant with 2 pirates)
+damage = 4.0
+energy_cost = 6.0
+cooldown_s = 0.45

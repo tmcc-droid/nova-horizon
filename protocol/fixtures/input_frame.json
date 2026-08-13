@@ -1,0 +1,9 @@
+{
+  "t": "InputFrame",
+  "v": 1,
+  "input_seq": 42,
+  "thrust": 1.0,
+  "turn": -0.25,
+  "fire_mask": 1,
+  "target_id": "018f0000-0000-7000-8000-0000000000aa"
+}

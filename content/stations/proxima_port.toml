@@ -1,0 +1,7 @@
+id = "st.proxima_port"
+system = "sys.alpha_centauri"
+x = 0.0
+y = 0.0
+dock_range_wu = 400.0
+safe_radius_wu = 2500.0
+fuel_price_per_unit = 80

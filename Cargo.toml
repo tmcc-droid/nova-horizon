@@ -1,0 +1,44 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/protocol",
+    "crates/content",
+    "crates/db",
+    "crates/sim",
+    "services/game-server",
+    "tools/loadtest",
+]
+default-members = ["services/game-server"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+repository = "https://github.com/example/nova-horizon"
+authors = ["Nova Horizon contributors"]
+
+[workspace.dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+uuid = { version = "1", features = ["v4", "v5", "v7", "serde"] }
+tracing = "0.1"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "signal", "time", "sync", "net"] }
+anyhow = "1"
+chrono = { version = "0.4", features = ["serde"] }
+sqlx = { version = "0.8", features = [
+    "runtime-tokio",
+    "postgres",
+    "uuid",
+    "chrono",
+    "json",
+    "migrate",
+] }
+
+[profile.dev]
+# Faster local iteration for a game server
+opt-level = 0
+
+[profile.release]
+lto = "thin"
+codegen-units = 1

@@ -1,0 +1,41 @@
+[package]
+name = "game-server"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Nova Horizon modular monolith: auth + WS gateway + system sim"
+
+[[bin]]
+name = "game-server"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = { workspace = true }
+tokio = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+serde = { workspace = true }
+serde_json = { workspace = true }
+uuid = { workspace = true }
+chrono = { workspace = true }
+protocol = { path = "../../crates/protocol" }
+content = { path = "../../crates/content" }
+db = { path = "../../crates/db" }
+sim = { path = "../../crates/sim" }
+sqlx = { workspace = true }
+
+axum = { version = "0.8", features = ["ws", "macros"] }
+tower = "0.5"
+tower-http = { version = "0.6", features = ["cors", "trace"] }
+futures-util = "0.3"
+argon2 = "0.5"
+password-hash = { version = "0.5", features = ["std"] }
+rand_core = { version = "0.6", features = ["std"] }
+jsonwebtoken = "9"
+sha2 = "0.10"
+hex = "0.4"
+dashmap = "6"
+thiserror = { workspace = true }
+
+[dev-dependencies]
+tokio = { workspace = true, features = ["rt-multi-thread", "macros"] }

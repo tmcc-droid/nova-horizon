@@ -1,0 +1,31 @@
+# Rust
+/target/
+**/*.rs.bk
+Cargo.lock.bak
+
+# Env / secrets
+.env
+.env.local
+*.pem
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*~
+
+# Godot
+client/.godot/
+client/export_presets.cfg
+client/*.translation
+client/.import/
+
+# Logs / dumps
+*.log
+backup.sql
+*.dump
+
+# Tooling
+.direnv/

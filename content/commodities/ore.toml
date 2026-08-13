@@ -1,0 +1,3 @@
+id = "commodity.ore"
+display_name = "Industrial Ore"
+mass_per_unit = 2.0

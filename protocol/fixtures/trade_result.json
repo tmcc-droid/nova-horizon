@@ -1,0 +1,14 @@
+{
+  "t": "TradeResult",
+  "v": 1,
+  "request_id": "018f0000-0000-7000-8000-000000000010",
+  "ok": true,
+  "code": "Ok",
+  "credits": 4800,
+  "cargo": [
+    { "commodity_id": "commodity.food", "quantity": 5 }
+  ],
+  "cargo_mass_used": 5.0,
+  "cargo_capacity_mass": 25.0,
+  "market_version": 3
+}

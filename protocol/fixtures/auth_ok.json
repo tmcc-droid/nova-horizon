@@ -1,0 +1,10 @@
+{
+  "t": "AuthOk",
+  "v": 1,
+  "character_id": "018f0000-0000-7000-8000-000000000002",
+  "ship_id": "018f0000-0000-7000-8000-000000000003",
+  "system_id": "sys.sol",
+  "content_version": "0.1.0-dev",
+  "server_protocol_v": 1,
+  "server_time_ms": 1700000000000
+}

@@ -1,0 +1,23 @@
+id = "ship.courier"
+display_name = "Fast Courier"
+mass = 30.0
+hull_radius_wu = 10.0
+cargo_capacity_mass = 15.0
+base_shield = 60.0
+base_armor = 40.0
+base_energy = 120.0
+energy_regen = 14.0
+thrust = 300.0
+max_speed = 650.0
+turn_rate = 2.6
+starting_fuel = 12
+max_fuel = 12
+
+[outfit_slots]
+weapon = 1
+engine = 1
+special = 0
+
+[default_loadout]
+weapon = ["weapon.light_cannon"]
+engine = ["engine.basic"]

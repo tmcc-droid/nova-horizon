@@ -1,0 +1,25 @@
+{
+  "t": "StationMenu",
+  "v": 1,
+  "station_id": "6ba7b810-9dad-51d1-80b4-00c04fd430c8",
+  "def_id": "st.earth_orbit",
+  "services": ["market", "shipyard", "refuel"],
+  "fuel_price_per_unit": 50,
+  "fuel_max_purchase": null,
+  "market": [
+    {
+      "commodity_id": "commodity.food",
+      "stock": 500,
+      "buy_price": 40,
+      "sell_price": 30,
+      "mass_per_unit": 1.0
+    },
+    {
+      "commodity_id": "commodity.ore",
+      "stock": 200,
+      "buy_price": 80,
+      "sell_price": 60,
+      "mass_per_unit": 2.0
+    }
+  ]
+}

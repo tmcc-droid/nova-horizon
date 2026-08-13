@@ -1,0 +1,44 @@
+# Nova Horizon local development stack
+# Usage:
+#   docker compose up -d postgres
+# Optional Redis (multi-process scale path — not required for MVP):
+#   docker compose --profile redis up -d
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: nova-horizon-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-nova}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-nova}
+      POSTGRES_DB: ${POSTGRES_DB:-nova_horizon}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - nova_pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-nova} -d ${POSTGRES_DB:-nova_horizon}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    profiles: ["redis"]
+    image: redis:7-alpine
+    container_name: nova-horizon-redis
+    restart: unless-stopped
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    volumes:
+      - nova_redis_data:/data
+    command: ["redis-server", "--save", "", "--appendonly", "no"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  nova_pg_data:
+  nova_redis_data:

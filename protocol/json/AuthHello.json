@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nova-horizon.local/protocol/AuthHello.json",
+  "title": "AuthHello",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "t",
+    "v",
+    "session_id",
+    "connect_ticket",
+    "client_content_version",
+    "client_protocol_v"
+  ],
+  "properties": {
+    "t": { "const": "AuthHello" },
+    "v": { "type": "integer", "minimum": 1 },
+    "session_id": { "type": "string", "format": "uuid" },
+    "connect_ticket": { "type": "string", "minLength": 1 },
+    "client_content_version": { "type": "string", "minLength": 1 },
+    "client_protocol_v": { "type": "integer", "minimum": 1 }
+  }
+}
+

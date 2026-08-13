@@ -1,0 +1,13 @@
+id = "sys.alpha_centauri"
+display_name = "Alpha Centauri"
+radius_wu = 100000.0
+stations = ["st.proxima_port"]
+spawn_tables = ["npc.pirate_raider"]
+map_x = 48.0
+map_y = 12.0
+kind = "populated"
+lore = "Nearest neighbor to Sol. Proxima Port is a busy frontier transfer berth."
+
+[[links]]
+to = "sys.sol"
+fuel_cost = 1

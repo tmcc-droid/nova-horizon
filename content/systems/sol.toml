@@ -1,0 +1,14 @@
+id = "sys.sol"
+display_name = "Sol"
+radius_wu = 120000.0
+stations = ["st.earth_orbit", "st.mars_depot"]
+spawn_tables = ["npc.merchant_light", "npc.pirate_raider"]
+map_x = 0.0
+map_y = 0.0
+kind = "hub"
+lore = "Humanity's home system. Earth Orbit and Mars Depot form the starter hub for new pilots."
+
+# Jump links come from the fixed galaxy catalog; optional hand links are merged if present.
+[[links]]
+to = "sys.alpha_centauri"
+fuel_cost = 1

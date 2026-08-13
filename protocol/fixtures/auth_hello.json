@@ -1,0 +1,8 @@
+{
+  "t": "AuthHello",
+  "v": 1,
+  "session_id": "018f0000-0000-7000-8000-000000000001",
+  "connect_ticket": "test-ticket",
+  "client_content_version": "0.1.0-dev",
+  "client_protocol_v": 1
+}

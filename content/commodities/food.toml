@@ -1,0 +1,3 @@
+id = "commodity.food"
+display_name = "Food Rations"
+mass_per_unit = 1.0
